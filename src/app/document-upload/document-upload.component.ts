@@ -16,7 +16,10 @@ export class DocumentUploadComponent implements OnDestroy {
   }
 
   selectDocuments(event: any){
-    if(event.target.files.length > 0){
+    if(event.target.files.length > 10){
+      this.notificationService.sendMessage({message: 'Too many files to upload. Keep uploaded file number below 10', type: NotificationType.warning});
+      event.target.value = '';
+    }else if(event.target.files.length > 0){
       this.documents = event.target.files;
     }
   }
