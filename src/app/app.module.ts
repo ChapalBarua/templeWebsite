@@ -36,6 +36,7 @@ import { RegisterComponent } from './templeSitePages/register/register.component
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './templeSitePages/login/login.component';
 import { NotificationMessageComponent } from './notification-message/notification-message.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { NotificationMessageComponent } from './notification-message/notificatio
     MatButtonModule,
     MatIconModule,
     MatCardModule,
+    NgbModule,
     ToastrModule.forRoot({
       positionClass :'toast-top-right'
     })
