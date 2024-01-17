@@ -6,31 +6,56 @@ import { UserRole } from './models/user.model';
 @Component({
   selector: 'app-root',
   template: `
-  <div>
-    <button mat-button routerLink="/">Home</button>
-    <button mat-button [matMenuTriggerFor]="about">
-      <div class="valign-center">
-        <span>About Us</span>
-        <mat-icon>arrow_drop_down</mat-icon>
+  <div class="container bg-info">
+    <div class="row" navBar>
+      <img src="assets/logo.png" class="img-fluid px-0" alt="image of temple">
+    </div>
+    
+    <div class="row rounded shadow" navBar>
+      <div class="col-lg-1 col-3">
+        <button mat-button routerLink="/">Home</button>
       </div>
-    </button>
-    <button mat-button [matMenuTriggerFor]="media">
-      <div class="valign-center">
-        <span>Media</span>
-        <mat-icon>arrow_drop_down</mat-icon>
+      <div class="col-lg-1 col-3 text-center">
+        <button mat-button class="px-1" [matMenuTriggerFor]="about" >
+          About Us
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
       </div>
-    </button>
-    <button mat-button routerLink="/calendar/events">Events</button>
-    <button mat-button>News</button>
-    <button mat-button>Blog</button>
-    <button mat-button routerLink="/contact">Contact</button>
-    <button mat-button>Donate</button>
-    <button *ngIf="!loggedIn" mat-button routerLink="/login">Register/Login</button>
-    <button *ngIf="loggedIn" mat-button (click)="logOut()" class="right-aligned-button">LogOut</button>
+      <div class="col-lg-1 col-3">
+        <button mat-button class="px-1" [matMenuTriggerFor]="media">
+          Media
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+      </div>
+      <div class="col-lg-1 col-3">
+        <button mat-button routerLink="/calendar/events">Events</button>
+      </div>
+      <div class="col-lg-1 col-3">
+        <button mat-button disabled>News</button>
+      </div>
+      <div class="col-lg-1 col-3">
+        <button mat-button disabled>Blog</button>
+      </div>
+      <div class="col-lg-1 col-3">
+        <button mat-button routerLink="/contact">Contact</button>
+      </div>
+      <div class="col-lg-1 col-3">
+        <button mat-button disabled>Donate</button>
+      </div>
+      <div class="col-lg-2 col-sm-1">
+      </div>
+      <div class="col-lg-2 col-3 text-center" *ngIf="!loggedIn">
+        <button class="btn btn-outline-danger btn-sm" mat-button routerLink="/login">Register/Login</button>
+      </div>
+      <div class="col-lg-2 col-3 text-center" *ngIf="loggedIn">
+        <button mat-button class="btn btn-outline-danger btn-sm" (click)="logOut()">LogOut</button>
+      </div>
+    </div>
   </div>
-
-  <app-home *ngIf=showHome></app-home><br><br><br><br>
-
+  <span [hidden]="!showHome">
+    <app-home></app-home>
+  </span>
+ 
   <mat-menu #media="matMenu">
     <button mat-menu-item *ngIf="!hideNonAdminMenu" routerLink="/upload/images">Upload Images</button>
     <button mat-menu-item *ngIf="!hideNonAdminMenu" routerLink="/upload/files">Upload Documents</button>

@@ -1,9 +1,37 @@
-<img class="center" src="assets/logo.jpg">
-<h1 class="header">Welcome to BSO</h1>
+<div class="container my-2">
+    <div class="row rounded shadow">
+      <div class="col-lg-3 col-sm-2 px-0">
+        <div class="card shadow">
+          <img class="card-img-top;" src="assets/buddha.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Sayings Of The Buddha</h5>
+            <p class="card-text">" All tremble at punishment. Life is dear to all. Put yourself in the place of others; kill none nor have another killed. Dhammapada 130 "</p>
+            <p>Buddha</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-9 bg-light pe-0" album>
+        <ejs-carousel [dataSource]="images" class="partial-carousel album" [showPlayButton]="true" [autoPlay]="true" [buttonsVisibility]="'Visible'" [partialVisible]="partialVisible" width="100%">
+            <ng-template #itemTemplate let-data>
+              <div class="slide-content"></div>
+              <figure class="img-container">
+                <img [src]="data.url" alt="" style="width:66%;" />
+              </figure>
+            </ng-template>
+        </ejs-carousel>
+      </div>
+    </div>
+</div>
 
-<p class="content">Welcome to the Buddhist Society of Ontario (BSO) and the Bangladesh Buddhist Vihara of Toronto (BBVT).
-Our organization was founded by Bangladeshi immigrants who have made Ontario their home, driven by the shared 
-goal of preserving, nurturing, and promoting our cultural and religious values. We extend a warm welcome to anyone interested 
-in learning about our activities and joining our vibrant community</p>
 
-<button routerLink="/bso" class="center">Find More About Us</button>
+
+
+
+  <h1 class="header">Welcome to BSO</h1>
+
+  <p class="content">Welcome to the Buddhist Society of Ontario (BSO) and the Bangladesh Buddhist Vihara of Toronto (BBVT).
+  Our organization was founded by Bangladeshi immigrants who have made Ontario their home, driven by the shared 
+  goal of preserving, nurturing, and promoting our cultural and religious values. We extend a warm welcome to anyone interested 
+  in learning about our activities and joining our vibrant community</p>
+  
+  <button routerLink="/bso" class="center">Find More About Us</button>
