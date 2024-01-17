@@ -35,6 +35,7 @@ import { RegisterComponent } from './templeSitePages/register/register.component
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './templeSitePages/login/login.component';
 import { NotificationMessageComponent } from './notification-message/notification-message.component';
+import { FooterComponent } from './templeSitePages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { NotificationMessageComponent } from './notification-message/notificatio
     EmailFormComponent,
     RegisterComponent,
     LoginComponent,
-    NotificationMessageComponent
+    NotificationMessageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { UserRole } from './models/user.model';
 @Component({
   selector: 'app-root',
   template: `
-  <div class="container bg-info">
+  <div class="container bg-info sticky-top">
     <div class="row" navBar>
       <img src="assets/logo.png" class="img-fluid px-0" alt="image of temple">
     </div>
@@ -45,10 +45,10 @@ import { UserRole } from './models/user.model';
       <div class="col-lg-2 col-sm-1">
       </div>
       <div class="col-lg-2 col-3 text-center" *ngIf="!loggedIn">
-        <button class="btn btn-outline-danger btn-sm" mat-button routerLink="/login">Register/Login</button>
+        <button class="btn btn-danger btn-sm" mat-button routerLink="/login">Register/Login</button>
       </div>
       <div class="col-lg-2 col-3 text-center" *ngIf="loggedIn">
-        <button mat-button class="btn btn-outline-danger btn-sm" (click)="logOut()">LogOut</button>
+        <button mat-button class="btn btn-danger btn-sm" (click)="logOut()">LogOut</button>
       </div>
     </div>
   </div>
@@ -60,7 +60,6 @@ import { UserRole } from './models/user.model';
     <button mat-menu-item *ngIf="!hideNonAdminMenu" routerLink="/upload/images">Upload Images</button>
     <button mat-menu-item *ngIf="!hideNonAdminMenu" routerLink="/upload/files">Upload Documents</button>
     <button mat-menu-item routerLink="/download/files">Download Documents</button>
-    <button mat-menu-item routerLink="/media/gallery">Photo Gallery</button>
   </mat-menu>
 
 
@@ -98,11 +97,6 @@ export class AppComponent implements OnInit{
   hideNonAdminMenu = true;
   
   constructor(private router: Router, private authService: AuthService){
-    //this.authService.registerNewUser({name: 'Chapal', email: 'chapalbuet@gmail.com', password: '12345', role: UserRole.SUPER_ADMIN});
-    //this.authService.loginUser({email: 'chapalbuet@gmail.com', password: '12345'});
-    //this.authService.loginUser({email: 'baruaagnila7@gmail.com', password: '54321'});
-   
-    
   }
   ngOnInit(): void {
     this.router.events.subscribe(event => {
