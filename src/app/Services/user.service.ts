@@ -21,21 +21,7 @@ export class UserService {
   }
 }
 
-
-// export interface User extends UserLoginInfo{
-//   name: string;
-// }
-
-// export interface UserLoginInfo {
-//   email: string;
-//   password: string
-// }
-
-
-
-//export const ServerUrl = 'https://localhost:3000/api/';
-//export const ServerUrl = 'https://ec2-18-212-240-65.compute-1.amazonaws.com:3000/api/';
-export const ServerUrl = 'https://www.bso-toronto.ca:3000/api/';
+export const ServerUrl = 'https://localhost:3000/api/';
 export const registerUserUrl = ServerUrl + 'auth/register/';
 export const loginUserUrl = ServerUrl + 'auth/login/';
 
