@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
 import { EncryptionService } from './encryption.service';
 import { BehaviorSubject } from 'rxjs';
-import { jwtDecode } from 'jwt-decode';
+import jwt_decode from "jwt-decode";
 import { LoggedInUser, User, UserLoginInfo } from '../models/user.model';
 import { Router } from '@angular/router';
 import { NotificationService, NotificationType } from './notification.service';
@@ -67,6 +67,6 @@ export class AuthService {
   }
 
   public get user(): LoggedInUser | null{
-    return this.token ? jwtDecode(this.token) : null;
+    return this.token ? jwt_decode(this.token) : null;
   }
 }
