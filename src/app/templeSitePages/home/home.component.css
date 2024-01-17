@@ -1,0 +1,22 @@
+::ng-deep .e-carousel .e-carousel-navigators .e-previous .e-btn:not(:disabled) .e-btn-icon,
+::ng-deep .e-carousel .e-carousel-navigators .e-next .e-btn:not(:disabled) .e-btn-icon,
+::ng-deep .e-carousel .e-carousel-navigators .e-play-pause .e-btn:not(:disabled) .e-btn-icon {
+    color: black;
+}
+
+
+.e-carousel .e-previous-icon::before {
+    color: black
+}
+
+.e-carousel .e-carousel-indicators.e-default .e-indicator-bar .e-indicator div {
+    background-color: black;
+}
+
+.e-carousel .e-carousel-indicators.e-default .e-indicator-bar.e-active .e-indicator div {
+    background-color: red;
+}
+
+figure {
+    margin: 0 0 0rem;
+}

@@ -10,11 +10,10 @@ import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, TimelineMonthService, MonthAgendaService, TimelineViewsService } from '@syncfusion/ej2-angular-schedule';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselModule } from "@syncfusion/ej2-angular-navigations";
 import { FileDownloaderComponent } from './file-downloader/file-downloader.component';
 import { MatSelectModule } from '@angular/material/select';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import  {MatCheckboxModule } from '@angular/material/checkbox';
@@ -36,6 +35,7 @@ import { RegisterComponent } from './templeSitePages/register/register.component
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './templeSitePages/login/login.component';
 import { NotificationMessageComponent } from './notification-message/notification-message.component';
+import { FooterComponent } from './templeSitePages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,6 @@ import { NotificationMessageComponent } from './notification-message/notificatio
     CalendarComponent,
     ImageUploadComponent,
     DocumentUploadComponent,
-    CarouselComponent,
     FileDownloaderComponent,
     HomeComponent,
     AboutBSOComponent,
@@ -57,7 +56,8 @@ import { NotificationMessageComponent } from './notification-message/notificatio
     EmailFormComponent,
     RegisterComponent,
     LoginComponent,
-    NotificationMessageComponent
+    NotificationMessageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

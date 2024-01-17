@@ -1,8 +1,3 @@
-.valign-center {
-    display: inline-flex;
-    align-items: center;
-}
-
 .page-header{
     text-align: center;
 }
@@ -18,9 +13,6 @@
     width: 50%;
 }
 
-.right-aligned-button{
-    color: white;
-    position: fixed;
-    right: 28px;
-    background: #673ab7;
+.sticky-top {
+    z-index: 999;
 }
