@@ -12,3 +12,7 @@
     margin-right: auto;
     width: 50%;
 }
+
+.sticky-top {
+    z-index: 999;
+}
