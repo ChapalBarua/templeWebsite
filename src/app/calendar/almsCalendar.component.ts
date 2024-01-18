@@ -10,6 +10,7 @@ import { NotificationService } from '../Services/notification.service';
     providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService]
 })
 export class AlmsCalendarComponent extends CalendarComponent{
+    override title = 'Alms Calendar';
     constructor(almsService: AlmsService, notificationService: NotificationService){
         super(almsService, notificationService);
     }
