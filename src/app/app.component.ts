@@ -73,7 +73,7 @@ import { NotificationService, NotificationType } from './Services/notification.s
     <button mat-menu-item routerLink="/bso">About BSO</button>
     <button mat-menu-item routerLink="/committee">BSO Commitee</button>
     <button mat-menu-item routerLink="/trustee">Trustee</button>
-    <button mat-menu-item>BSO Annual Report</button>
+    <button mat-menu-item disabled>BSO Annual Report</button>
   </mat-menu>
 
   <mat-menu #temple="matMenu">
