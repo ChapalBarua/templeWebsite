@@ -12,14 +12,6 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
-.header{
-    text-align: center;
-}
-
-.content{
-    font-size: large;
-}
-
 .center {
     display: block;
     margin-left: auto;
