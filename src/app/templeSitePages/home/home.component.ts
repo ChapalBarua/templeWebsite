@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
   
   @Input()
   images: Record<string, string | number>[] = [];
-  public partialVisible: boolean = true;
 
   ngOnInit(): void {
   }
