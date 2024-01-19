@@ -1,6 +1,21 @@
-<mat-form-field>
-    <mat-label>Select Option to download</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let file of files" value="file.url" (onSelectionChange)="select(file)">{{file.Name}}</mat-option>
-    </mat-select>
-</mat-form-field>
+<div class="container">
+  <div class="row rounded shadow my-5 inner-container">
+      <div class="col-lg-3 col-sm-2 px-0 my-5">
+          <app-left-panel></app-left-panel>
+      </div>
+      <div class="col-lg-1 col-1">
+      </div>
+
+      <div class="col-lg-7 bg-light text-center">
+          <h1 class="text-center my-4 text-secondary text-shadow">Download File</h1>
+
+          <mat-form-field>
+            <mat-label>Select Option to download</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let file of files" value="file.url" (onSelectionChange)="select(file)" title={{file.Name}}>{{file.Name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+  </div>
+</div>
+<app-footer></app-footer>

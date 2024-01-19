@@ -1,13 +1,28 @@
-
-<div style="text-align: center">
-    <form>
-        <div>
-            <input type="file" name="image" multiple (change)="selectDocuments($event)"/>
-            <span>(Supported file types - jpeg, png, jpg, svg)</span>
-            <br>
-            <div>
-                <button type="submit" (click)="onSubmit($event)">Upload</button>
+<div class="container">
+    <div class="row rounded shadow my-5 inner-container">
+        <div class="col-lg-3 col-sm-2 px-0 my-5">
+            <app-left-panel></app-left-panel>
+        </div>
+        <div class="col-lg-1 col-1">
+        </div>
+  
+        <div class="col-lg-7 bg-light">
+            <div class="contact-form-wrapper d-flex justify-content-center">
+                <form>
+                    <h1 class="text-center my-4 text-secondary text-shadow">Upload Images</h1>
+                    <div>
+                        <input type="file" name="document" multiple (change)="selectDocuments($event)"/>
+                    </div>
+                    <div class="pt-1">
+                        (Supported file types - jpeg, png, jpg, svg)
+                    </div>
+                    <br>
+                    <div>
+                        <button type="submit" (click)="onSubmit($event)" mat-raised-button color="primary"  [disabled]="!documents">Upload</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
 </div>
+<app-footer></app-footer>

@@ -1,8 +1,14 @@
 .authentication-card {
-    width: 30%;
+    width: 25%;
     margin: 0 auto;
 }
 
 .authentication-card-container {
     min-height: 100vh;
+}
+
+@media (max-width: 978px) {
+    .authentication-card {
+        width: 70%;
+    }
 }
