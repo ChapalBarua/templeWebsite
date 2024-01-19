@@ -21,7 +21,7 @@ export class UserService {
   }
 }
 
-export const ServerUrl = 'https://www.bso-toronto.ca:3000/api/';
+export const ServerUrl = 'https://localhost:3000/api/';
 export const registerUserUrl = ServerUrl + 'auth/register/';
 export const loginUserUrl = ServerUrl + 'auth/login/';
 
