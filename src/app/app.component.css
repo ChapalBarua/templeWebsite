@@ -1,18 +1,3 @@
-.page-header{
-    text-align: center;
-}
-
-.content{
-    font-size: large;
-}
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
 .sticky-top {
     z-index: 999;
 }

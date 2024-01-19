@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { AuthService } from './Services/auth.service';
 import { UserRole } from './models/user.model';
+import { ImagesListUrl, UploadService } from './Services/upload.service';
+import { NotificationService, NotificationType } from './Services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -52,17 +54,16 @@ import { UserRole } from './models/user.model';
       </div>
     </div>
   </div>
-  <span [hidden]="!showHome">
-    <app-home></app-home>
-  </span>
+  <ng-container *ngIf="showHome">
+    <app-home [images]=images></app-home>
+  </ng-container>
  
   <mat-menu #media="matMenu">
     <button mat-menu-item *ngIf="!hideNonAdminMenu" routerLink="/upload/images">Upload Images</button>
     <button mat-menu-item *ngIf="!hideNonAdminMenu" routerLink="/upload/files">Upload Documents</button>
     <button mat-menu-item routerLink="/download/files">Download Documents</button>
   </mat-menu>
-
-
+  
   <mat-menu #about="matMenu">
     <button mat-menu-item [matMenuTriggerFor]="bso" >BSO</button>
     <button mat-menu-item [matMenuTriggerFor]="temple">Temple</button>
@@ -72,7 +73,7 @@ import { UserRole } from './models/user.model';
     <button mat-menu-item routerLink="/bso">About BSO</button>
     <button mat-menu-item routerLink="/committee">BSO Commitee</button>
     <button mat-menu-item routerLink="/trustee">Trustee</button>
-    <button mat-menu-item>BSO Annual Report</button>
+    <button mat-menu-item disabled>BSO Annual Report</button>
   </mat-menu>
 
   <mat-menu #temple="matMenu">
@@ -95,13 +96,30 @@ export class AppComponent implements OnInit{
   showLogOut = false;
   loggedIn = false;
   hideNonAdminMenu = true;
+  images: Record<string, string | number>[] = [];
   
-  constructor(private router: Router, private authService: AuthService){
+  constructor(private router: Router, private authService: AuthService, private uploadService: UploadService, private notificationService: NotificationService){
   }
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if(event instanceof NavigationStart){
-        this.showHome = event.url === '/';
+        if(event.url === '/'){ // showing home page
+          if(this.images.length === 0){ // images are not loaded already
+            this.uploadService.getFileList(ImagesListUrl).subscribe({ // load image
+              next: (result)=>{
+                this.images = result;
+                this.showHome = true;
+              },
+              error: (error: any)=>{
+                this.notificationService.sendMessage({message: 'No Images Found: ' + error.error.msg, type: NotificationType.error});
+              }
+            });
+          }else { // images are already loaded
+            this.showHome = true;
+          }
+        }else { // navigating non home page
+          this.showHome = false;
+        }
       }
     });
 

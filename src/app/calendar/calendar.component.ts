@@ -13,6 +13,7 @@ import { NotificationService, NotificationType } from '../Services/notification.
 export class CalendarComponent {
   @ViewChild(ScheduleComponent)
   public scheduleObj?: ScheduleComponent;
+  title = 'Event Calendar';
   oldData: object[] = [];
   flag=false;
   public currentView: View = 'Month';
