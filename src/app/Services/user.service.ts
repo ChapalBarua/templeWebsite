@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  registerUser(user: User): Observable<any>{
+  registerUser(user: User): Observable<any>{ // backend ignores user_role sent from UI. Backend sets it to 'General User'
     
     return this.http.post(registerUserUrl, user);
   }
