@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   registerNewUser(user: User){
-    this.userService.registerUser(user).subscribe({
+    this.userService.registerUser(user).subscribe({ // backend ignores the role sent - set the role to 'General User'
       next: result=>{
           if(result.token){
             localStorage.setItem(this.TOKEN_NAME, result.token);
