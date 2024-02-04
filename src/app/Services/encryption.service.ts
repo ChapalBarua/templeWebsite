@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import * as JsEncryptModule from 'jsencrypt';
-import { PUBLIC_KEY } from "../public_key";
+import { PUBLIC_KEY } from "../../../../TempleServer/helpers/secrets/secret_keys_ui";
 
 @Injectable({providedIn: 'root'})
 export class EncryptionService{
@@ -8,7 +8,7 @@ export class EncryptionService{
 
     constructor(){
         this.encryptMod = new JsEncryptModule.JSEncrypt();
-        this.encryptMod.setPublicKey(PUBLIC_KEY);
+        this.encryptMod.setPublicKey(PUBLIC_KEY); // need to have rsa public key in UI and corresponding private key in backnd
     }
     encrypt(plainText: string): string {
         let encryptedText = this.encryptMod.encrypt(plainText);
