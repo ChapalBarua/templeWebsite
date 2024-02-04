@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.authService.registerNewUser( // backend ignores user_role sent from UI. Backend sets it to 'General User'
+    this.authService.registerNewUser( // backend ignores the role sent - set the role to 'General User'
       {...this.registerForm.value, role: UserRole.GENERAL_USER}
     );
   }

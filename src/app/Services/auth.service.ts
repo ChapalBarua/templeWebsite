@@ -26,8 +26,8 @@ export class AuthService {
     return this.isLoggedIn$.value;
   }
 
-  registerNewUser(user: User){ // backend ignores user_role sent from UI. Backend sets it to 'General User'
-    this.userService.registerUser(user).subscribe({
+  registerNewUser(user: User){
+    this.userService.registerUser(user).subscribe({ // backend ignores the role sent - set the role to 'General User'
       next: result=>{
           if(result.token){
             localStorage.setItem(this.TOKEN_NAME, result.token);
