@@ -16,6 +16,7 @@ import { ContactComponent } from './templeSitePages/contact/contact.component';
 import { RegisterComponent } from './templeSitePages/register/register.component';
 import { LoginComponent } from './templeSitePages/login/login.component';
 import { LoggedInAuthGuard } from './loggedIn.auth.guard';
+import { DonateComponent } from './templeSitePages/donate/donate.component';
 
 const routes: Routes = [
   {path: 'calendar', component: CalendarComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'committee', component: CommitteeComponent},
   {path: 'trustee', component: TrusteeComponent},
   {path: 'contact', component: ContactComponent},
+  {path: 'donate', component: DonateComponent},
   {path: 'register', component: RegisterComponent, canActivate: [LoggedInAuthGuard]},
   {path: 'login', component: LoginComponent, canActivate: [LoggedInAuthGuard]}
 ];

@@ -37,6 +37,7 @@ import { LoginComponent } from './templeSitePages/login/login.component';
 import { NotificationMessageComponent } from './notification-message/notification-message.component';
 import { FooterComponent } from './templeSitePages/footer/footer.component';
 import { LeftPanelComponent } from './templeSitePages/left-panel.component';
+import { DonateComponent } from './templeSitePages/donate/donate.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { LeftPanelComponent } from './templeSitePages/left-panel.component';
     LoginComponent,
     NotificationMessageComponent,
     FooterComponent,
-    LeftPanelComponent
+    LeftPanelComponent,
+    DonateComponent
   ],
   imports: [
     BrowserModule,

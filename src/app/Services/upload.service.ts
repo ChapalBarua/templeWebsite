@@ -1,7 +1,8 @@
-import { HttpClient, HttpHeaders,  } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ServerUrl } from "./user.service";
 import { Injectable } from "@angular/core";
+import { File as Myfile} from "../file-downloader/file-downloader.component";
 
 @Injectable({providedIn: 'root'})
 export class UploadService {
@@ -20,6 +21,18 @@ export class UploadService {
     public getFileList(url: string): Observable<any> {
   
       return this.http.get(url);
+    }
+
+    downloadFile(file: Myfile){
+      this.http.get(file.url, {responseType: 'arraybuffer'}).subscribe(binaryData=>{
+        const downloadedFile: Blob = new Blob([binaryData]);
+        const url: string = window.URL.createObjectURL(downloadedFile);
+        const anchorElement: HTMLAnchorElement = document.createElement('a');
+        anchorElement.download = file.Name;
+        anchorElement.href = url;
+        anchorElement.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+        anchorElement.remove();
+      })
     }
 
   }

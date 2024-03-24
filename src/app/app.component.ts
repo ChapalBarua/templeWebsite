@@ -4,6 +4,7 @@ import { AuthService } from './Services/auth.service';
 import { UserRole } from './models/user.model';
 import { ImagesListUrl, UploadService } from './Services/upload.service';
 import { NotificationService, NotificationType } from './Services/notification.service';
+import { File } from './file-downloader/file-downloader.component';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +43,7 @@ import { NotificationService, NotificationType } from './Services/notification.s
         <button mat-button routerLink="/contact">Contact</button>
       </div>
       <div class="col-lg-1 col-3">
-        <button mat-button disabled>Donate</button>
+        <button mat-button routerLink="/donate">Donate</button>
       </div>
       <div class="col-lg-2 col-sm-1">
       </div>
@@ -92,6 +93,8 @@ import { NotificationService, NotificationType } from './Services/notification.s
 })
 export class AppComponent implements OnInit{
   title = 'TempleWebsite';
+  memberShipFormName = "MemberShipForm.pdf";
+  memberShipFormLink = "assets/MemberShipForm.pdf";
   showHome = false;
   showLogOut = false;
   loggedIn = false;
@@ -136,11 +139,8 @@ export class AppComponent implements OnInit{
   }
 
   downloadMembershipForm(){
-    const link = document.createElement('a');
-    link.download = "MemberShipForm.pdf";
-    link.href = "assets/MemberShipForm.pdf";
-    link.click();
-    link.remove();
+    let file: File = {Name: this.memberShipFormName, url: this.memberShipFormLink};
+    this.uploadService.downloadFile(file);
   }
 
   logOut(){

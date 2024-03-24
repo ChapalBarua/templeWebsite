@@ -23,8 +23,10 @@ export class FileDownloaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  select(file:File): void {
-    window.location.href = file.url;
+  select(file:File, event: any): void {
+    if(event.isUserInput){
+      this.uploadService.downloadFile(file);
+    }
   }
 
 }

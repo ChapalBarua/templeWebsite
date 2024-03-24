@@ -15,6 +15,11 @@
 .text-shadow {
     text-shadow: 2px 2px black;
 }
+
+.bold {
+    font-weight: 500;
+}
+
 @media (max-width: 978px)  {
      .inner-container.my-5 {
         margin-top: 0px !important;
